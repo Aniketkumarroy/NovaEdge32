@@ -30,13 +30,13 @@ module Sign_Extender(
     always @(*)
         if (en)
             if (ctrl[0])
-                out = {{20{in[31]}}, in[31:20]};
+                out = {{20{in[31]}}, in[31:20]}; // I type encoding
             else
                 casex (ctrl[2:1])
-                    3'b00 : out = {in[31:12], {12{1'b0}}};
-                    3'b01 : out = {{20{in[31]}}, in[31:25], in[11:7]};
-                    3'b10 : out = {{12{in[31]}}, in[31], in[19:12], in[20], in[30:21]};
-                    3'b11 : out = {{20{in[31]}}, in[31], in[7], in[30:25], in[11:8]};
+                    3'b00 : out = {in[31:12], {12{1'b0}}};  // U type encoding
+                    3'b01 : out = {{20{in[31]}}, in[31:25], in[11:7]}; // S type encoding
+                    3'b10 : out = {{11{in[31]}}, in[31], in[19:12], in[20], in[30:21], 1'b0}; // J type encoding
+                    3'b11 : out = {{19{in[31]}}, in[31], in[7], in[30:25], in[11:8], 1'b0}; // B type encoding
                     default: out = 32'bz;
                 endcase
         else

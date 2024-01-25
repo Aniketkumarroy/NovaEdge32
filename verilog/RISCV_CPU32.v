@@ -71,7 +71,6 @@ module RISCV_CPU32(
     assign data_memory = (Mem_rd_wr) ? RegData2 : DataIn;
 
     Mem_Load Memory_Load_Store(.out(Extended_data_memory), .in(data_memory), .op(opcode_funct3));
-    // assign WriteRegData = (RegWriteResultSrc[0]) ? ((RegWriteResultSrc[1]) ? next_PC : DataIn) : (RegWriteResultSrc[1]) ? Sign_extended_Immediate : ALU_result;
     always @(RegWriteResultSrc, next_PC, DataIn, Sign_extended_Immediate, ALU_result)
         casex (RegWriteResultSrc)
             2'b00 : WriteRegData = ALU_result;
@@ -146,12 +145,5 @@ module RISCV_CPU32(
                 2'b11 : PC = {ALU_result[31:1], 1'b0};
                 default: PC = next_PC;
             endcase
-        // if (PCSrc[0])
-        //     if (PCSrc[1])
-        //         PC = {ALU_result[31:1], 1'b0};
-        //     else
-        //         PC = Target_PC;
-        // else
-        //     PC = next_PC;
 
 endmodule

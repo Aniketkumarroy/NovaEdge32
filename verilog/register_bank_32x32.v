@@ -39,7 +39,7 @@ module register_bank_32x32(
     assign Rdata_out1 = reg_file[read_addr1];
     assign Rdata_out2 = reg_file[read_addr2];
     
-    always @(posedge clock)
+    always @(negedge clock)
         begin
             reg_file[5'b00000] = 32'b0; // since in RV32I r0 is hard wired to zero
             if (reset)
