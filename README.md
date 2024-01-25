@@ -14,4 +14,3 @@ the instruction set encoding supported by this is given [here](/instruction_set_
 the CPU model is [CPU](/verilog/RISCV_CPU32.v), this file only models the CPU, instruction code memory and RAM needs to be connected to its ports separately
 
 [![vivado-schematic]](vivado-schematic.png)
->>>>>>> c9602949b06b31a29bfcc789c8223e2780c4f9e6
