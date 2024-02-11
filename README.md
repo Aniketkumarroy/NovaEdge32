@@ -13,5 +13,5 @@ the CPU model is [CPU](/verilog/RISCV_CPU32.v), this file only models the CPU, i
 
 # vivado Schematic
 ![[vivado-schematic]](vivado-schematic.png)
-# Diagram
+# Microarchitecture
 ![[vivado-schematic]](schematic.png)
